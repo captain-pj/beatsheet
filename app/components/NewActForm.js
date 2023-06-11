@@ -4,12 +4,12 @@ export default function AddActForm({ onAdd }) {
     const dataRef = useRef()
     const [title, setTitle] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const submitAct = {
           name: title
         }
-        fetch(`http://localhost:8080/acts/`, {
+        try { fetch(`http://localhost:8080/acts/`, {
           method: 'POST',
           body: JSON.stringify(submitAct),
           headers: {
@@ -18,6 +18,9 @@ export default function AddActForm({ onAdd }) {
           },
         })
         onAdd()
+        } catch (error) {
+            console.error(error)
+        }
       }
   
     return (
