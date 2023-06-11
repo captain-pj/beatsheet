@@ -9,7 +9,8 @@ export default function AddActForm({ onAdd }) {
         const submitAct = {
           name: title
         }
-        try { fetch(`http://localhost:8080/acts/`, {
+        try { 
+         await fetch(`http://localhost:8080/acts/`, {
           method: 'POST',
           body: JSON.stringify(submitAct),
           headers: {
