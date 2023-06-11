@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import Act from './components/Act'
@@ -44,17 +44,17 @@ const Home = () => {
   }, [])
 
   return (
-    <main className="bg-slate-800 text-slate-100 flex w-full min-h-screen flex-col p-10">
-      <div className="left-0 flex h-64 w-full items-end justify-between basis-full">
+    <main className='bg-slate-800 text-slate-100 flex w-full min-h-screen flex-col p-10'>
+      <div className='left-0 flex h-64 w-full items-end justify-between basis-full'>
         <a
-          className="pointer-events-none flex mb-5"
-          target="_blank"
-          rel="noopener noreferrer"
+          className='pointer-events-none flex mb-5'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           <Image
-            src="/spotter.svg"
-            alt="Spotter Logo"
-            className="mr-3 invert"
+            src='/spotter.svg'
+            alt='Spotter Logo'
+            className='mr-3 invert'
             width={100}
             height={24}
             priority
@@ -62,9 +62,9 @@ const Home = () => {
           Beatsheet Helper
         </a>
       </div>
-      <div className="left-0 flex flex-col h-64 w-full mb-5 items-start justify-start basis-full">
-        <p className="prose-sm">Use this beatsheet guide to plan out your video. Acts are large sections of story containing many beats. </p>
-        <p className="prose-sm">Your beats can be shots, lines of dialog, or whole scenes, depending upon the duration of your video.</p>
+      <div className='left-0 flex flex-col h-64 w-full mb-5 items-start justify-start basis-full'>
+        <p className='prose-sm'>Use this beatsheet guide to plan out your video. Acts are large sections of story containing many beats. </p>
+        <p className='prose-sm'>Your beats can be shots, lines of dialog, or whole scenes, depending upon the duration of your video.</p>
       </div>
       <div>
         {acts && acts.map((act) => (

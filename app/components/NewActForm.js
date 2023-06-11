@@ -31,9 +31,9 @@ export default function AddActForm({ onAdd }) {
           type='text'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter Act Title"
+          placeholder='Enter Act Title'
         />
-        <button type="submit">Add Act</button>
+        <button type='submit'>Add Act</button>
       </form>
     )
   }
