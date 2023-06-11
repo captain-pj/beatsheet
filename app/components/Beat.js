@@ -12,7 +12,7 @@ const Beat = ({title, time, camera, desc, notes, onDelete }) => {
 
     return (
     <>
-      <div className="container p-5 border-slate-500 border-2 rounded basis-full lg:basis-72 flex-auto">
+      <div className="container bg-slate-700 p-5 border-slate-500 border-2 rounded basis-full lg:basis-72 flex-auto grow">
         <div className='flex justify-between items-center'>
             <h4 className="prose-lg block justify-self-start"><strong>{title}</strong></h4>
             <button onClick={handleClick} className='justify-self-end border rounded border-red-500 text-red-500 p-1 mt-0 mb-5 prose-sm'>Delete Beat</button>

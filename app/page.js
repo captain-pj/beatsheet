@@ -62,15 +62,20 @@ const Home = () => {
           Beatsheet Helper
         </a>
       </div>
-      <div className="left-0 flex h-64 w-full mb-5 items-end justify-start basis-full">
-        <p className="flex left-0 prose-sm">Use this layout to plan out the major beats or moments in your video. Add acts and add beats into those acts.</p>
+      <div className="left-0 flex flex-col h-64 w-full mb-5 items-start justify-start basis-full">
+        <p className="prose-sm">Use this beatsheet guide to plan out your video. Acts are large sections of story containing many beats. </p>
+        <p className="prose-sm">Your beats can be shots, lines of dialog, or whole scenes, depending upon the duration of your video.</p>
       </div>
       <div>
         {acts && acts.map((act) => (
            <Act key={act.id} id={act.id} title={act.name} onDelete={() => deleteAct(act.id)} />
         ))}
          {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 mt-5 prose-sm'>Add Act</button>}
-        {showForm && <NewActForm onAdd={addAct} onCancel={() => setShowForm(false)} />}
+        {showForm && 
+          <>
+            <NewActForm onAdd={addAct} onCancel={() => setShowForm(false)} />
+            <button onClick={() => setShowForm(false)}>Cancel</button>
+          </>}
       </div>
     </main>
   )

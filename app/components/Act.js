@@ -48,15 +48,20 @@ const Act = ({id, title = "New Act", onDelete}) => {
     <>
       <section className="p-5 pt-0 w-full min-h-64 mb-5 border-slate-700 border-dashed border-2 rounded prose-stone">
         <div className='flex justify-between'>
-          <h3 className="-ml-5 mt-0 p-3 justify-self-start bg-sky-500/100 text-slate-100 rounded inline-block mb-5">{title}</h3>
-          <button onClick={handleClick} className='justify-self-end border mb-5 rounded border-red-500 text-red-500 p-1 mt-5 prose-sm'>Delete Act</button>
+          <h3 className="-ml-5 mt-0 p-3 max-h-12 justify-self-start bg-sky-500/100 text-slate-100 rounded inline-block mb-5">{title}</h3>
+          <button onClick={handleClick} className='justify-self-end border mb-5 rounded border-red-500 text-red-500 p-2 mt-5 prose-sm'>Delete Act</button>
         </div>
             <div className="flex flex-col lg:flex-row flex-wrap justify-start gap-5">
             {beats.map((beat) => (
               <Beat key={beat.id} title={beat.name} time={beat.time} desc={beat.content} notes={beat.notes} camera={beat.cameraAngle} onDelete={() => deleteBeat(beat.id)} />
             ))}
-            {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 mt-5 prose-sm'>Add Beat</button>}
-            {showForm && <NewBeatForm id={id} onAdd={addBeat} onCancel={() => setShowForm(false)} />}         
+            {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 pl-3 pr-3 mt-5 prose-sm max-h-9 self-center'>Add Beat</button>}
+            {showForm && 
+            <>
+              <NewBeatForm id={id} onAdd={addBeat} onCancel={() => setShowForm(false)} />
+              <button onClick={() => setShowForm(false)}>Cancel</button>
+            </>
+            }         
           </div>
       </section>
 
