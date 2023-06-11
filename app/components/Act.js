@@ -47,15 +47,17 @@ const Act = ({id, title = "New Act", onDelete}) => {
   return (
     <>
       <section className="p-5 pt-0 w-full min-h-64 mb-5 border-slate-700 border-dashed border-2 rounded prose-stone">
-        <h3 className="-ml-5 p-3 bg-sky-500/100 text-slate-100 rounded inline-block mb-5">{title}</h3>
-        <button onClick={handleClick} className='border rounded border-red-500 text-red-500 p-1 mt-5 prose-sm'>Delete Act</button>
-          <div className="flex flex-col lg:flex-row flex-wrap justify-start gap-5">
-          {beats.map((beat) => (
-            <Beat key={beat.id} title={beat.name} time={beat.time} desc={beat.content} notes={beat.notes} camera={beat.cameraAngle} onDelete={() => deleteBeat(beat.id)} />
-          ))}
-          {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 mt-5 prose-sm'>Add Beat</button>}
-          {showForm && <NewBeatForm id={id} onAdd={addBeat} onCancel={() => setShowForm(false)} />}         
+        <div className='flex justify-between'>
+          <h3 className="-ml-5 mt-0 p-3 justify-self-start bg-sky-500/100 text-slate-100 rounded inline-block mb-5">{title}</h3>
+          <button onClick={handleClick} className='justify-self-end border mb-5 rounded border-red-500 text-red-500 p-1 mt-5 prose-sm'>Delete Act</button>
         </div>
+            <div className="flex flex-col lg:flex-row flex-wrap justify-start gap-5">
+            {beats.map((beat) => (
+              <Beat key={beat.id} title={beat.name} time={beat.time} desc={beat.content} notes={beat.notes} camera={beat.cameraAngle} onDelete={() => deleteBeat(beat.id)} />
+            ))}
+            {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 mt-5 prose-sm'>Add Beat</button>}
+            {showForm && <NewBeatForm id={id} onAdd={addBeat} onCancel={() => setShowForm(false)} />}         
+          </div>
       </section>
 
 

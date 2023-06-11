@@ -12,9 +12,11 @@ const Beat = ({title, time, camera, desc, notes, onDelete }) => {
 
     return (
     <>
-      <div className="container p-5 border-slate-500 border-2 rounded basis-full lg:basis-96 flex-auto">
-        {title && <h4 className="prose-lg block"><strong>{title}</strong></h4> }
-        <button onClick={handleClick} className='border rounded border-red-500 text-red-500 p-1 mt-5 prose-sm'>Delete Beat</button>
+      <div className="container p-5 border-slate-500 border-2 rounded basis-full lg:basis-72 flex-auto">
+        <div className='flex justify-between items-center'>
+            <h4 className="prose-lg block justify-self-start"><strong>{title}</strong></h4>
+            <button onClick={handleClick} className='justify-self-end border rounded border-red-500 text-red-500 p-1 mt-0 mb-5 prose-sm'>Delete Beat</button>
+        </div>
         <hr className="mb-5" />
         {time && <p className="prose-sm"><strong>Time:</strong> {time}</p>}
         {camera && <p className="prose-sm"><strong>Camera Angle:</strong>  {camera}</p>}
