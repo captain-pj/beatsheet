@@ -72,7 +72,7 @@ export default function EditBeatForm(props) {
           placeholder={props.notes ? props.notes : 'Any additional notes?'}
         />
 
-        <button type='submit' className='bg-emerald-500 p-2 text-slate-100'>Update Beat</button>
+        <button type='submit' className='prose-sm rounded bg-emerald-500 p-2 text-slate-100'>Update Beat</button>
       </form>
     )
   }

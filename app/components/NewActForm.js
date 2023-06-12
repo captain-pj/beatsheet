@@ -33,7 +33,7 @@ export default function AddActForm({ onAdd }) {
           onChange={(e) => setTitle(e.target.value)}
           placeholder='Enter Act Title'
         />
-        <button type='submit'>Add Act</button>
+        <button type='submit' className='border rounded border-emerald-500 text-emerald-500 p-1 mb-5 prose-sm'>Add Act</button>
       </form>
     )
   }

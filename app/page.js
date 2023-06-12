@@ -72,7 +72,7 @@ const Home = () => {
         {showForm && 
           <>
             <NewActForm onAdd={addAct} onCancel={() => setShowForm(false)} />
-            <button onClick={() => setShowForm(false)}>Cancel</button>
+            <button className='border rounded border-slate-100 text-slate-100 p-1 mb-5 prose-sm inline-block' onClick={() => setShowForm(false)}>Cancel</button>
           </>}
 
         {acts && acts.map((act) => (

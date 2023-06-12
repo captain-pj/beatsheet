@@ -65,7 +65,7 @@ export default function AddBeatForm(props) {
           placeholder='Any additional notes?'
         />
 
-        <button type='submit' className='bg-emerald-500 p-2 text-slate-100'>Add Beat</button>
+        <button type='submit' className='bg-emerald-500 p-2 text-slate-100 rounded'>Add Beat</button>
       </form>
     )
   }

@@ -67,10 +67,10 @@ const Act = ({id, title = 'New Act', onDelete}) => {
             ))}
             {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 pl-3 pr-3 mt-5 prose-sm max-h-9 self-center'>Add Beat</button>}
             {showForm && 
-            <>
+            <div className='max-w-90%'>
               <NewBeatForm id={id} onAdd={addBeat} onCancel={() => setShowForm(false)} />
-              <button onClick={() => setShowForm(false)}>Cancel</button>
-            </>
+              <button className='border rounded border-slate-100 text-slate-100 p-1 pl-3 pr-3 p-2 mt-5 prose-sm w-full' onClick={() => setShowForm(false)}>Cancel</button>
+            </div>
             }         
           </div>
       </section>

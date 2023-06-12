@@ -47,7 +47,7 @@ const Beat = ({id, title, time, camera, desc, notes, onDelete, onUpdate }) => {
                         notes={notes} 
                         onUpdate={updateBeat} 
                         onCancel={() => setShowForm(false)} />
-                    <button onClick={() => setShowForm(false)}>Cancel</button>
+                    <button className='border rounded border-slate-100 mb-5 text-slate-100 p-1 pl-3 pr-3 p-2 mt-5 prose-sm w-full' onClick={() => setShowForm(false)}>Cancel</button>
                 </>
                 }
             </h4>
