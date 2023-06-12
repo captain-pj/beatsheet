@@ -6,6 +6,7 @@ import NewActForm from './components/NewActForm'
 
 const Home = () => {
 
+  // state for acts to display and to open the input for the create new act button
   const [acts, setActs] = useState([])
   const [showForm, setShowForm] = useState(false)
 
@@ -67,15 +68,16 @@ const Home = () => {
         <p className='prose-sm'>Your beats can be shots, lines of dialog, or whole scenes, depending upon the duration of your video.</p>
       </div>
       <div>
-        {acts && acts.map((act) => (
-           <Act key={act.id} id={act.id} title={act.name} onDelete={() => deleteAct(act.id)} />
-        ))}
-         {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 mt-5 prose-sm'>Add Act</button>}
+      {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 mb-5 prose-sm'>Add Act</button>}
         {showForm && 
           <>
             <NewActForm onAdd={addAct} onCancel={() => setShowForm(false)} />
             <button onClick={() => setShowForm(false)}>Cancel</button>
           </>}
+
+        {acts && acts.map((act) => (
+           <Act key={act.id} id={act.id} title={act.name} onDelete={() => deleteAct(act.id)} />
+        ))}
       </div>
     </main>
   )

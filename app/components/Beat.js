@@ -1,20 +1,44 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import NewBeatForm from './NewBeatForm'
 import { ExclamationTriangleIcon, PencilIcon } from '@heroicons/react/24/outline'
 
-const Beat = ({title, time, camera, desc, notes, onDelete }) => {
+const Beat = ({id, title, time, camera, desc, notes, onDelete }) => {
     const cancelButtonRef = useRef(null)
-    const [open, setOpen] = useState(false)
 
+    // state for opening the confirmation modal and for showing the edit form
+    const [open, setOpen] = useState(false)
+    const [showForm, setShowForm] = useState(false)
+
+    // handler to open/close the confirmation modal
     const handleClick = () => {
         setOpen(true)
     }
+
+    // handler for opening the delete confirmation modal 
+    const handleUpdateClick = () => {
+        setShowForm(true);
+      }
+
+    // update and post updated beat info
+      const updateBeat = () => {
+        //fetchFunc()
+        setShowForm(false)
+      }
 
     return (
     <>
       <div className='container bg-slate-700 p-5 border-slate-500 border-2 rounded basis-full lg:basis-72 flex-auto grow'>
         <div className='flex justify-between items-center'>
-            <h4 className='prose-lg block justify-self-start inline-block'><strong>{title}</strong><PencilIcon className='inline-block h-4 w-4 ml-3' /></h4>
+            <h4 className='prose-lg block justify-self-start inline-block'><strong>{title}</strong>
+                {!showForm && <button onClick={handleUpdateClick}><PencilIcon className='inline-block h-4 w-4 ml-3' /></button>}
+                {showForm && 
+                <>
+                    <NewBeatForm id={id} role='update' onAdd={updateBeat} onCancel={() => setShowForm(false)} />
+                    <button onClick={() => setShowForm(false)}>Cancel</button>
+                </>
+                }   
+            </h4>
             <button onClick={handleClick} className='justify-self-end border rounded border-red-500 text-red-500 p-1 pl-2 pr-2 mt-0 mb-5 prose-sm'>Delete Beat</button>
         </div>
         <hr className='mb-5' />

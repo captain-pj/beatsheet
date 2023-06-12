@@ -38,7 +38,7 @@ export default function AddBeatForm(props) {
           type='text'
           value={name}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder='Enter beat title'
+          placeholder={name ? name : 'Enter beat title'}
         />
         <input
           type='text'

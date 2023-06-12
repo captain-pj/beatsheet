@@ -6,16 +6,18 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 const Act = ({id, title = 'New Act', onDelete}) => {
   const cancelButtonRef = useRef(null)
+
+  // using state for loading beats, showing the add beat form and for opening the confirmation modal
   const [beats, setBeats] = useState([])
   const [showForm, setShowForm] = useState(false)
   const [open, setOpen] = useState(false)
 
+  // handler for opening the confirm modal before a user deletes an act
     const handleClick = () => {
         setOpen(true)
     }
 
-  // allow user to add or edit beats within the acts
-
+  //fetch data TODO: break these out into helper functions to make them more reusable
   const fetchFunc = () => {
     fetch(`http://localhost:8080/acts/${id}/beats`)
     .then(data => data.json())
@@ -23,25 +25,29 @@ const Act = ({id, title = 'New Act', onDelete}) => {
     .catch(err => console.error(err))
   }
 
+  // display initial data from fetch on page loda
   useEffect(() => {
     fetchFunc()
   }, [id])
 
+  // display form with fields for editing beat
+  const handleAddClick = () => {
+    setShowForm(true);
+  }
+
+ // update beats and hide add beat form 
   const addBeat = () => {
     fetchFunc()
     setShowForm(false)
   }
 
+  // logic for removing beat from database
   const deleteBeat = (beatid) => {
     fetch(`http://localhost:8080/acts/${id}/beats/${beatid}`, {
       method: 'DELETE'
     })
     .then(fetchFunc)
     .catch(err => console.error(err))
-  }
-
-  const handleAddClick = () => {
-    setShowForm(true);
   }
 
   return (
@@ -67,7 +73,7 @@ const Act = ({id, title = 'New Act', onDelete}) => {
 
 
       {open && (
-        //TODO: turn this into a reusable component
+        //TODO: turn this modal code into a reusable component since it is used 
         <Transition.Root show={open} as={Fragment}>
             <Dialog as='div' className='relative z-10' initialFocus={cancelButtonRef} onClose={setOpen}>
               <Transition.Child
