@@ -8,7 +8,7 @@ export default function AddBeatForm(props) {
     const [cameraAngle, setCamera] = useState('')
   
     const handleSubmit = async (e) => {
-      e.preventDefault();
+      e.preventDefault()
       const submitBeat = {
         name,
         time,
@@ -38,7 +38,7 @@ export default function AddBeatForm(props) {
           type='text'
           value={name}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder={name ? name : 'Enter beat title'}
+          placeholder={'Enter beat title'}
         />
         <input
           type='text'

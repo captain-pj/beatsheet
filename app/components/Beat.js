@@ -1,9 +1,9 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import NewBeatForm from './NewBeatForm'
+import EditBeatForm from './EditBeatForm'
 import { ExclamationTriangleIcon, PencilIcon } from '@heroicons/react/24/outline'
 
-const Beat = ({id, title, time, camera, desc, notes, onDelete }) => {
+const Beat = ({id, title, time, camera, desc, notes, onDelete, onUpdate }) => {
     const cancelButtonRef = useRef(null)
 
     // state for opening the confirmation modal and for showing the edit form
@@ -17,13 +17,14 @@ const Beat = ({id, title, time, camera, desc, notes, onDelete }) => {
 
     // handler for opening the delete confirmation modal 
     const handleUpdateClick = () => {
-        setShowForm(true);
+        setShowForm(true)
+        //TODO: find more graceful way to re-render beat on update
       }
 
     // update and post updated beat info
       const updateBeat = () => {
-        //fetchFunc()
         setShowForm(false)
+        onUpdate()
       }
 
     return (
@@ -31,13 +32,24 @@ const Beat = ({id, title, time, camera, desc, notes, onDelete }) => {
       <div className='container bg-slate-700 p-5 border-slate-500 border-2 rounded basis-full lg:basis-72 flex-auto grow'>
         <div className='flex justify-between items-center'>
             <h4 className='prose-lg block justify-self-start inline-block'><strong>{title}</strong>
-                {!showForm && <button onClick={handleUpdateClick}><PencilIcon className='inline-block h-4 w-4 ml-3' /></button>}
+                {!showForm && 
+                    <button onClick={handleUpdateClick}>
+                        <PencilIcon className='inline-block h-4 w-4 ml-3' />
+                    </button>}
                 {showForm && 
                 <>
-                    <NewBeatForm id={id} role='update' onAdd={updateBeat} onCancel={() => setShowForm(false)} />
+                    <EditBeatForm 
+                        id={id} 
+                        title={title} 
+                        time={time} 
+                        camera={camera} 
+                        desc={desc} 
+                        notes={notes} 
+                        onUpdate={updateBeat} 
+                        onCancel={() => setShowForm(false)} />
                     <button onClick={() => setShowForm(false)}>Cancel</button>
                 </>
-                }   
+                }
             </h4>
             <button onClick={handleClick} className='justify-self-end border rounded border-red-500 text-red-500 p-1 pl-2 pr-2 mt-0 mb-5 prose-sm'>Delete Beat</button>
         </div>

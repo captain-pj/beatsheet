@@ -41,7 +41,7 @@ const Home = () => {
   )
 
   const handleAddClick = useCallback(() => {
-    setShowForm(true);
+    setShowForm(true)
   }, [])
 
   return (

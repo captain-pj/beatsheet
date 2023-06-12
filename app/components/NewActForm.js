@@ -5,7 +5,7 @@ export default function AddActForm({ onAdd }) {
     const [title, setTitle] = useState('')
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         const submitAct = {
           name: title
         }

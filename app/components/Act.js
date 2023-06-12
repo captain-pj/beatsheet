@@ -32,13 +32,17 @@ const Act = ({id, title = 'New Act', onDelete}) => {
 
   // display form with fields for editing beat
   const handleAddClick = () => {
-    setShowForm(true);
+    setShowForm(true)
   }
 
  // update beats and hide add beat form 
   const addBeat = () => {
     fetchFunc()
     setShowForm(false)
+  }
+
+  const editBeat = () => {
+    fetchFunc()
   }
 
   // logic for removing beat from database
@@ -59,7 +63,7 @@ const Act = ({id, title = 'New Act', onDelete}) => {
         </div>
             <div className='flex flex-col lg:flex-row flex-wrap justify-start gap-5'>
             {beats.map((beat) => (
-              <Beat key={beat.id} title={beat.name} time={beat.time} desc={beat.content} notes={beat.notes} camera={beat.cameraAngle} onDelete={() => deleteBeat(beat.id)} />
+              <Beat key={beat.id} id={beat.id} title={beat.name} time={beat.time} desc={beat.content} notes={beat.notes} camera={beat.cameraAngle} onUpdate={editBeat} onDelete={() => deleteBeat(beat.id)} />
             ))}
             {!showForm && <button onClick={handleAddClick} className='border rounded border-emerald-500 text-emerald-500 p-1 pl-3 pr-3 mt-5 prose-sm max-h-9 self-center'>Add Beat</button>}
             {showForm && 
