@@ -10,7 +10,7 @@ Potential future improvements: allow users to drag and rearrange the beat cards 
 
 Screenshot of initial load:
 
-
+![Alt text](./appscreenshot.png?raw=true "Beatsheet dashboard")
 
 If you would rather run the code locally, follow the below instructions:
 
