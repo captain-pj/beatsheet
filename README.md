@@ -6,8 +6,6 @@ The compiled front end code is available on [https://beatsheet.vercel.app/](http
 
 Users can add acts, which serve as containers for beats (shots, scenes, lines, etc.). They can also add beats within each act container. They can delete acts (deleting beats within them) and delete beats. They can also edit beats.
 
-Potential future improvements: allow users to drag and rearrange the beat cards within the acts and the acts themselves. Allow users to uploda a storyboard panel or other visual reference that can be revealed through "flipping" the cards.
-
 Screenshot of initial load:
 
 ![Alt text](./appscreenshot.png?raw=true "Beatsheet dashboard")
