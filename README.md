@@ -4,6 +4,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 The compiled front end code is available on [https://beatsheet.vercel.app/](https://beatsheet.vercel.app/). To run the backend services, follow the instructions on the following repository to get a Docker container running locally (the front end app points to the local endpoint): [beatsheet-exercise](https://github.com/fmatar/beatsheet-exercise)
 
+Users can add acts, which serve as containers for beats (shots, scenes, lines, etc.). They can also add beats within each act container. They can delete acts (deleting beats within them) and delete beats. They can also edit beats.
+
+Potential future improvements: allow users to drag and rearrange the beat cards within the acts and the acts themselves. Allow users to uploda a storyboard panel or other visual reference that can be revealed through "flipping" the cards.
+
+Screenshot of initial load:
+
+
+
 If you would rather run the code locally, follow the below instructions:
 
 ## Getting Started
